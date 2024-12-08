@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { addToBasket, removeFromBasket } from "./contain";
+import { addToBasket, removeFromBasket } from "./basket";
 
 test("addToBasket()", () => {
   const basket = ["apple", "banana"];

@@ -1,6 +1,6 @@
 import { expect, test, spyOn } from "bun:test";
-import * as math from "../math/math";
-import { calculateDiscount } from "../integration/integration";
+import * as math from "../toBe/math";
+import { calculateDiscount } from "../integration/discount";
 
 test("isEven is called", () => {
   const isEvenSpy = spyOn(math, "isEven");

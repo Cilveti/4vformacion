@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { basket, addToBasket, removeFromBasket } from "./lenght";
+import { basket, addToBasket, removeFromBasket } from "./basket.test";
 
 test("addToBasket()", () => {
   addToBasket("apple");

@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { fetchData } from "./async";
+import { fetchData } from "./fetch";
 
 test("fetches data", async () => {
   const data = await fetchData();

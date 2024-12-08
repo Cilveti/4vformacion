@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { calculateDiscount } from "./integration";
+import { calculateDiscount } from "./discount";
 
 test("even discount()", () => {
   expect(calculateDiscount(10)).toBe(0.1);

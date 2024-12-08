@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { getUser } from "./equal";
+import { getUser } from "./user";
 
 test("returns user object", () => {
   const user = getUser(1);
