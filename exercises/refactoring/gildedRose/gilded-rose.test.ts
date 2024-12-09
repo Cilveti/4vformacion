@@ -69,15 +69,29 @@ describe("Gilded Rose", () => {
       expect(items[0].quality).toBe(1);
     });
 
+    test('"Aged Brie" quality increases twice as fast when the sellin date is less than 0', () => {
+      const items = [
+          new Item("Aged Brie", 0, 0),
+      ];
+      const gildedRose = new GildedRose(items);
+      
+      gildedRose.updateQuality();
+
+      expect(items[0].sellIn).toBe(-1);
+      expect(items[0].quality).toBe(2);
+    });
+
     test("The Quality of an item is never more than 50", () => {
       const items = [
           new Item("Aged Brie", 1, 49),
+          new Item("Aged Brie", 0, 49),
       ];
       const gildedRose = new GildedRose(items);
       
       gildedRose.updateQuality();
 
       expect(items[0].quality).toBe(50);
+      expect(items[1].quality).toBe(50);
     });
   });
 
@@ -143,7 +157,23 @@ describe("Gilded Rose", () => {
       expect(items[0].sellIn).toBe(-1);
       expect(items[0].quality).toBe(0);
     });
+
+    test("Quality doesn't go over 50 in any case", () => {
+      const items = [
+          new Item('Backstage passes to a TAFKAL80ETC concert', 10, 50),
+          new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49),
+          new Item('Backstage passes to a TAFKAL80ETC concert', 3, 48),
+      ];
+
+      const gildedRose = new GildedRose(items);
+      gildedRose.updateQuality();
+
+      expect(items[0].quality).toBe(50);
+      expect(items[1].quality).toBe(50);
+      expect(items[2].quality).toBe(50);
+    });
   });
+
   describe.skip("Conjured items", () => {
     test("Conjured items degrade in Quality twice as fast as normal items", () => {
       const items = [
