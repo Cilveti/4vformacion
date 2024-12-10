@@ -85,6 +85,7 @@ describe("Gilded Rose", () => {
       const items = [
           new Item("Aged Brie", 1, 49),
           new Item("Aged Brie", 0, 49),
+          new Item("Aged Brie", 0, 50),
       ];
       const gildedRose = new GildedRose(items);
       
@@ -92,6 +93,7 @@ describe("Gilded Rose", () => {
 
       expect(items[0].quality).toBe(50);
       expect(items[1].quality).toBe(50);
+      expect(items[2].quality).toBe(50);
     });
   });
 
@@ -174,7 +176,7 @@ describe("Gilded Rose", () => {
     });
   });
 
-  describe.skip("Conjured items", () => {
+  describe("Conjured items", () => {
     test("Conjured items degrade in Quality twice as fast as normal items", () => {
       const items = [
           new Item('Conjured Mana Cake', 10, 10),
